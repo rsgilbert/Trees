@@ -1,3 +1,4 @@
+from .LinkedQueue import LinkedQueue
 class Tree:
     class Position:
         '''An abstraction representing the location of a single element'''
@@ -28,6 +29,8 @@ class Tree:
     def __len__(self):
         raise NotImplementedError('Must be implemented by subclass')
 
+    def positions(self):
+        raise NotImplementedError('Must be implemented by subclass')
 
     # --- Concrete methods implemented by Tree
     def is_root(self, p):
@@ -55,3 +58,55 @@ class Tree:
         if p is None:
             p = self.root()
         return self._height(p)
+
+    
+    def __iter__(self):
+        '''Generate an iteration of the tree's elements'''
+        for p in self.positions():
+            yield p.element()
+
+    
+    ### Traversal algorithms ###
+
+    # Preorder
+    # Visit root of subtree then traverse its children
+
+    def _subtree_preorder(self, p):
+        yield p
+        for child_p in self.children(p):
+            for child_other in self._subtree_preorder(child_p):
+                yield child_other
+
+    def preorder(self):
+        if not self.is_empty():
+            return self._subtree_preorder(self.root())
+   
+
+    # Postorder
+    # Traverse subtrees before visiting the root
+
+    def _subtree_postorder(self, p):
+        for child_p in self.children(p):
+            for child_other in self._subtree_postorder(child_p):
+                yield child_other
+        yield p
+
+    def postorder(self):
+        return self._subtree_postorder(self.root())
+
+
+    # Breadth-first search
+    # Visit items in row after row 
+
+    def _subtree_breadthfirst(self, p):
+        if not self.is_empty():
+            Q = LinkedQueue()
+            Q.enqueue(p)
+            while not Q.is_empty():
+                position = Q.dequeue()
+                [Q.enqueue(child_pos) for child_pos in self.children(position)]
+                yield position
+        
+    # Breadthfirst traversal starting with the root
+    def breadthfirst(self):
+        return self._subtree_breadthfirst(self.root())
