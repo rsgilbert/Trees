@@ -1,5 +1,7 @@
 from lib.LinkedBinaryTree import LinkedBinaryTree
-from toc import toc, toc_with_index
+from toc import toc, toc_with_index, TocEulerTour
+from BinaryLayout import BinaryLayout
+
 
 # tests
 t = LinkedBinaryTree()
@@ -74,3 +76,16 @@ for (p, d) in toc(t):
 print('\n## Table of Contents With Indexes ## \n')
 for (p, d, index) in toc_with_index(t):
     print('  ' * d, index,  t._validate(p)._element)
+
+
+## Table of contents with indexes using EulerTour
+print('\n## Table of Contents With Indexes Using EulerTour ## \n')
+eulertour = TocEulerTour(t)
+eulertour.execute()
+
+# Binary Layout
+print('\n ## Binary Layout ## \n')
+layout = BinaryLayout(t)
+layout.execute()
+
+

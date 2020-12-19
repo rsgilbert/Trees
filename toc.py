@@ -1,4 +1,6 @@
 from lib.Tree import Tree
+from lib.EulerTour import EulerTour
+
 
 # Generating table of comments in O(n) time
 
@@ -27,5 +29,10 @@ def toc_with_index(tree, S=list(), pos=None, depth=0):
 
 
 def indexize(S):
-    index = '.'.join(str(idx) for idx in S)
-    return index + ' '
+    index = '.'.join(str(idx) for idx in S) + " "
+    return index 
+
+class TocEulerTour(EulerTour):
+    def _hook_previsit(self, p, d, path):
+        print(f'{" " * 2 * d}{indexize(path)} {p.element()}')
+

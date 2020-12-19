@@ -1,6 +1,7 @@
 # Computing diskspace using postorder traversal
 
 import os
+from lib.EulerTour import EulerTour 
 
 def space_usage_iter(path, size=0):
     if is_dir(path):
@@ -47,3 +48,8 @@ print(kilosize)
 print(megasize)
 print(gigasize)
 
+
+### We need to be able to represent a file path as a tree first
+# class DiskSpaceTour(EulerTour):
+#     def _hook_postvisit(self, p, d, path, results):
+#         return immediate_size(joinpath(p))
