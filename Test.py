@@ -2,7 +2,7 @@ from lib.LinkedBinaryTree import LinkedBinaryTree
 from toc import toc, toc_with_index, TocEulerTour
 from BinaryLayout import BinaryLayout
 from parenthesis import parenthesize, ParenthesisEulerTour
-
+from lib.ExpressionTree import ExpressionTree, build_tree
 
 # tests
 t = LinkedBinaryTree()
@@ -100,3 +100,10 @@ layout = BinaryLayout(t)
 layout.execute()
 
 
+# ExpressionTree
+print('\n ## Expression Tree ## \n')
+exp = ExpressionTree('*')
+
+
+ex_t = build_tree('((8*5)+(3-(4*3)))')
+print(ex_t.evaluate())
