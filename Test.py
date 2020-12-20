@@ -1,6 +1,7 @@
 from lib.LinkedBinaryTree import LinkedBinaryTree
 from toc import toc, toc_with_index, TocEulerTour
 from BinaryLayout import BinaryLayout
+from parenthesis import parenthesize, ParenthesisEulerTour
 
 
 # tests
@@ -83,8 +84,18 @@ print('\n## Table of Contents With Indexes Using EulerTour ## \n')
 eulertour = TocEulerTour(t)
 eulertour.execute()
 
+
+# Parenthesis
+print('\n ## Parenthesis representation of a tree ## \n')
+parenthesize(t)
+
+# Parenthesis using EulerTour
+print('\n\n## ParenthesisEulerTour ##\n')
+parenthesized_tour = ParenthesisEulerTour(t)
+parenthesized_tour.execute()
+
 # Binary Layout
-print('\n ## Binary Layout ## \n')
+print('\n\n ## Binary Layout ## \n')
 layout = BinaryLayout(t)
 layout.execute()
 
