@@ -107,3 +107,5 @@ exp = ExpressionTree('*')
 
 ex_t = build_tree('((8*5)+(3-(4*3)))')
 print(ex_t.evaluate())
+
+
