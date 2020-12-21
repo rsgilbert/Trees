@@ -10,7 +10,7 @@ class Tree:
             raise NotImplementedError('Must be implemented by subclass')
 
         def __ne__(self, other):
-            return self != other
+            return not self == other
 
 
     # ---- Abstract methods that concrete subclass must implement ----        
