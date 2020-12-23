@@ -70,3 +70,9 @@ print('\n ## to_proper_bt ## \n')
 print(len(t2))
 to_proper_bt(t2, t2.root())
 print(len(t2))
+
+## R-8.10
+## Checking number of children ## 
+print('\n Number of children \n')
+print(t2.num_children(t2.root()))
+

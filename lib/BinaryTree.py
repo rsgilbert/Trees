@@ -33,6 +33,17 @@ class BinaryTree(Tree):
             yield self.right(p)
 
 
+    ## Exercise R-8.10
+    ## Direct implementation of num_children
+    def num_children(self, p):
+        '''Return number of children of p'''
+        if self.left(p) and self.right(p):
+            return 2
+        if self.left(p) or self.right(p):
+            return 1
+        return 0
+
+
     # Inorder Traversal
     # Visit position between traversals of its left and right subtrees
     def _subtree_inorder(self, p):

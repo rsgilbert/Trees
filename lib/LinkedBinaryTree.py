@@ -71,15 +71,17 @@ class LinkedBinaryTree(BinaryTree):
         node = self._validate(p)
         return self._make_position(node._right)
 
-    def num_children(self, p):
-        ''' number of children for p'''
-        node = self._validate(p)
-        count = 0
-        if node._left is not None:
-            count += 1
-        if node._right is not None:
-            count += 1
-        return count
+
+    # Exercise R-8.10, reimplemented num_children from BinaryTree class
+    # def num_children(self, p):
+    #     ''' number of children for p'''
+    #     node = self._validate(p)
+    #     count = 0
+    #     if node._left is not None:
+    #         count += 1
+    #     if node._right is not None:
+    #         count += 1
+    #     return count
 
     def _add_root(self, e):
         '''Place element e at root of empty tree and return new position'''
